@@ -11,14 +11,14 @@ app.get('/', function (req, res) {
           	const $ = cheerio.load(html);
 	          	console.log("Start")
 
-          let ids = $('a[data-post-id]').map(function(index,data) {
+          let data = $('a[data-post-id]').map(function(index,data) {
           			var heading = $(this).children('h3').text();
           			var text = $(this).children('div').text();
           			var string = index+" " +heading +" -> "+text;
           			// arr.push(string)
 			    return string;
 		  }).get()
-			res.send(ids);
+			res.send(data);
       }
 });
    
