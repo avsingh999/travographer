@@ -9,9 +9,8 @@ function nextLink(href){
       var data = request(href, function(err, resp, data){
         if(!err){
               const $ = cheerio.load(data);
-              var d = $('h1,div[class=section-content]').attr('h1');
-              
-              // console.log(data)
+              var d = $('h1,div[class=section-content]').text();
+              console.log(d)
               return d;
         }
         else{
